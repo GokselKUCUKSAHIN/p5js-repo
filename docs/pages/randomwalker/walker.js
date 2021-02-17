@@ -1,9 +1,15 @@
 const SQRT2 = Math.sqrt(2);
 class Walker {
-
   constructor(x, y) {
     this.x = x;
     this.y = y;
+  }
+
+  display() {
+    let tx = this.x;
+    let ty = this.y;
+    this.moveRandomPoint();
+    line(tx, ty, this.x, this.y);
   }
 
   moveRandomPoint() {

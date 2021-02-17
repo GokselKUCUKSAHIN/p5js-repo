@@ -11,6 +11,5 @@ function setup() {
 
 function draw() {
   //
-  point(walker.x, walker.y);
-  walker.moveRandomPoint();
+  walker.display();
 }
