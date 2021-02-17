@@ -3,12 +3,15 @@ class Walker {
   constructor(x, y) {
     this.x = x;
     this.y = y;
+    this.ratio = 1.5;
   }
 
   display() {
     let tx = this.x;
     let ty = this.y;
-    this.moveRandomPoint();
+    let p = this.moveRandomPoint();
+    this.x += this.ratio * p.x;
+    this.y += this.ratio * p.y;
     line(tx, ty, this.x, this.y);
   }
 
@@ -16,47 +19,35 @@ class Walker {
     switch (Walker.getRandomPoint()) {
       case 0: {
         // up
-        this.y--;
-        break;
+        return { x: 0, y: -1 }; //
       }
       case 1: {
         // up-right
-        this.y -= SQRT2;
-        this.x += SQRT2;
-        break;
+        return { x: SQRT2, y: -SQRT2 }; //
       }
       case 2: {
         // right
-        this.x++;
-        break;
+        return { x: 1, y: 0 }; //
       }
       case 3: {
         // bottom-right
-        this.y += SQRT2;
-        this.x += SQRT2;
-        break;
+        return { x: SQRT2, y: SQRT2 }; //
       }
       case 4: {
         // bottom
-        this.y++;
-        break;
+        return { x: 0, y: 1 }; //
       }
       case 5: {
         // bottom-left
-        this.y += SQRT2;
-        this.x -= SQRT2;
-        break;
+        return { x: -SQRT2, y: SQRT2 }; //
       }
       case 6: {
         // left
-        this.x--;
-        break;
+        return { x: -1, y: 0 }; //
       }
       case 7: {
         // up-left
-        this.x -= SQRT2;
-        this.y -= SQRT2;
-        break;
+        return { x: -SQRT2, y: -SQRT2 }; //
       }
     }
   }
