@@ -1,16 +1,109 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Index Page</title>
-</head>
-<body>
-  <ul>
-    <li><a href="pages/helloworld/helloworld.html">Hello, World!</a></li>
-    <li><a href="pages/randomwalker/walker.html">Random Walker</a></li>
-    <li><a href="pages/fillCircle/fillCircle.html">Fill Circle</a></li>
-    <li><a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">Roller</a></li>
-  </ul>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Index Page</title>
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css"
+      integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M"
+      crossorigin="anonymous"
+    />
+    <!-- VUE JS -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+    <!-- MY CSS -->
+    <style>
+      .table-striped > tbody > tr:nth-child(2n + 1) > td,
+      .table-striped > tbody > tr:nth-child(2n + 1) > th {
+        background-color: #ffb7b2;
+      }
+      .table-striped > tbody > tr:nth-child(2n) > td,
+      .table-striped > tbody > tr:nth-child(2n) > th {
+        background-color: #fee4e4;
+      }
+      .table th {
+        background-color: #ed265d;
+        color: white;
+      }
+      td > a {
+        color: black;
+      }
+      td > a:hover {
+        color: #ed265d;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container mt-4" id="app">
+      <h2 class="mb-3"><span style="color: #ed265d">p5.js</span> Projects</h2>
+      <table class="table table-sm table-bordered table-striped">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Project Name</th>
+            <th scope="col" class="text-center">GitHub Page</th>
+            <th scope="col" class="text-center">Live Preview</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr v-for="(item, index) in projects" :key="index">
+            <th scope="row">{{++index}}</th>
+            <td><b>{{item.name}}</b></td>
+            <td class="text-center"><a :href="item.git" target="_blank">git</a></td>
+            <td class="text-center"><a :href="item.live" target="_blank">Live</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <!-- VUE INSTANCE -->
+    <script>
+      new Vue({
+        el: "#app",
+        data: {
+          projects: [
+            {
+              name: "Hello, World!",
+              git: "https://github.com/GokselKUCUKSAHIN/p5js-repo/tree/main/docs/pages/helloworld",
+              live: "pages/helloworld/helloworld.html",
+            },
+            {
+              name: "Random Walker",
+              git: "https://github.com/GokselKUCUKSAHIN/p5js-repo/tree/main/docs/pages/randomwalker",
+              live: "pages/randomwalker/walker.html",
+            },
+            {
+              name: "Fill Circle",
+              git: "https://github.com/GokselKUCUKSAHIN/p5js-repo/tree/main/docs/pages/fillCircle",
+              live: "pages/fillCircle/fillCircle.html",
+            },
+            {
+              name: "Roller",
+              git: "https://github.com/GokselKUCUKSAHIN/p5js-repo",
+              live: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+            },
+          ],
+        },
+      });
+    </script>
+    <!-- jQuery -->
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+      crossorigin="anonymous"
+    ></script>
+    <!-- Popper.js -->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"
+      integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4"
+      crossorigin="anonymous"
+    ></script>
+    <!-- Bootstrap JS -->
+    <script
+      src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"
+      integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1"
+      crossorigin="anonymous"
+    ></script>
+  </body>
 </html>
