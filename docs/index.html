@@ -51,8 +51,12 @@
           <tr v-for="(item, index) in projects" :key="index">
             <th scope="row">{{++index}}</th>
             <td><b>{{item.name}}</b></td>
-            <td class="text-center"><a :href="item.git" target="_blank">git</a></td>
-            <td class="text-center"><a :href="item.live" target="_blank">Live</a></td>
+            <td class="text-center">
+              <a :href="item.git" target="_blank">git</a>
+            </td>
+            <td class="text-center">
+              <a :href="item.live" target="_blank">Live</a>
+            </td>
           </tr>
         </tbody>
       </table>
@@ -62,20 +66,24 @@
       new Vue({
         el: "#app",
         data: {
-          projects: [
+          projects: [],
+          temp_projects: [
             {
               name: "Hello, World!",
-              git: "https://github.com/GokselKUCUKSAHIN/p5js-repo/tree/main/docs/pages/helloworld",
+              git:
+                "https://github.com/GokselKUCUKSAHIN/p5js-repo/tree/main/docs/pages/helloworld",
               live: "pages/helloworld/helloworld.html",
             },
             {
               name: "Random Walker",
-              git: "https://github.com/GokselKUCUKSAHIN/p5js-repo/tree/main/docs/pages/randomwalker",
+              git:
+                "https://github.com/GokselKUCUKSAHIN/p5js-repo/tree/main/docs/pages/randomwalker",
               live: "pages/randomwalker/walker.html",
             },
             {
               name: "Fill Circle",
-              git: "https://github.com/GokselKUCUKSAHIN/p5js-repo/tree/main/docs/pages/fillCircle",
+              git:
+                "https://github.com/GokselKUCUKSAHIN/p5js-repo/tree/main/docs/pages/fillCircle",
               live: "pages/fillCircle/fillCircle.html",
             },
             {
@@ -84,6 +92,21 @@
               live: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
             },
           ],
+        },
+        methods: {
+          async getProjects() {
+            response = await this.fetchPost();
+            this.projects = response.projects;
+          },
+          async fetchPost() {
+            const response = await fetch(
+              "https://raw.githubusercontent.com/GokselKUCUKSAHIN/p5js-repo/main/docs/projects.json"
+            );
+            return await response.json();
+          },
+        },
+        async created() {
+          this.getProjects();
         },
       });
     </script>
