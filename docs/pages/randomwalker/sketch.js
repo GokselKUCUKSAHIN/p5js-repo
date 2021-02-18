@@ -7,12 +7,12 @@ function setup() {
   walker = new Walker(width / 2, height / 2);
   background(64, 128, 128);
   colorCounter = 0;
-  colorMode(HSB, 255);
-  strokeWeight(3);
+  colorMode(HSB, 1);
+  strokeWeight(5);
 }
 
 function draw() {
-  colorCounter = (colorCounter + 0.1) % 255;
-  stroke(colorCounter, 255, 255, 60)
+  colorCounter = (colorCounter + 0.001) % 1;
+  stroke(colorCounter, 1, 1, 0.35)
   walker.display();
 }

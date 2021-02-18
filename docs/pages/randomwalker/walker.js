@@ -9,7 +9,8 @@ class Walker {
   display() {
     let tx = this.x;
     let ty = this.y;
-    let p = this.moveRandomPoint();
+    //let p = this.moveRandomPoint();
+    let p = p5.Vector.random2D().mult(this.ratio);
     this.x += this.ratio * p.x;
     this.y += this.ratio * p.y;
     line(tx, ty, this.x, this.y);
