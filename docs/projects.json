@@ -16,6 +16,11 @@
       "live": "pages/fillCircle/fillCircle.html"
     },
     {
+      "name": "Normal Distribution",
+      "git": "_blank",
+      "live": "pages/normalDistribution/normalDist.html"
+    },
+    {
       "name": "Roller",
       "git": "https://github.com/GokselKUCUKSAHIN/p5js-repo",
       "live": "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
