@@ -52,7 +52,7 @@
         </thead>
         <tbody>
           <tr v-for="(item, index) in projects" :key="index">
-            <th class="number text-center" >{{++index}}</th>
+            <th class="number text-center">{{++index}}</th>
             <td><b>{{item.name}}</b></td>
             <td class="text-center">
               <a :href="item.git" target="_blank">GitHub URL</a>
@@ -70,31 +70,6 @@
         el: "#app",
         data: {
           projects: [],
-          temp_projects: [
-            {
-              name: "Hello, World!",
-              git:
-                "https://github.com/GokselKUCUKSAHIN/p5js-repo/tree/main/docs/pages/helloworld",
-              live: "pages/helloworld/helloworld.html",
-            },
-            {
-              name: "Random Walker",
-              git:
-                "https://github.com/GokselKUCUKSAHIN/p5js-repo/tree/main/docs/pages/randomwalker",
-              live: "pages/randomwalker/walker.html",
-            },
-            {
-              name: "Fill Circle",
-              git:
-                "https://github.com/GokselKUCUKSAHIN/p5js-repo/tree/main/docs/pages/fillCircle",
-              live: "pages/fillCircle/fillCircle.html",
-            },
-            {
-              name: "Roller",
-              git: "https://github.com/GokselKUCUKSAHIN/p5js-repo",
-              live: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
-            },
-          ],
         },
         methods: {
           async getProjects() {
