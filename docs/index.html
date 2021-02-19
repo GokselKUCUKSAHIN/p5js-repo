@@ -44,7 +44,7 @@
       <table class="table table-sm table-bordered table-striped">
         <thead>
           <tr>
-            <th scope="col">#</th>
+            <th scope="col" class="text-center">#</th>
             <th scope="col">Project Name</th>
             <th scope="col" class="text-center">GitHub Page</th>
             <th scope="col" class="text-center">Live Preview</th>
@@ -52,7 +52,7 @@
         </thead>
         <tbody>
           <tr v-for="(item, index) in projects" :key="index">
-            <th class="number">{{++index}}</th>
+            <th class="number text-center" >{{++index}}</th>
             <td><b>{{item.name}}</b></td>
             <td class="text-center">
               <a :href="item.git" target="_blank">git</a>
