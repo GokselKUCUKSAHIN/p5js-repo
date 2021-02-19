@@ -33,6 +33,9 @@
       td > a:hover {
         color: #ed265d;
       }
+      .table .number {
+        color: #ed265d;
+      }
     </style>
   </head>
   <body>
@@ -49,7 +52,7 @@
         </thead>
         <tbody>
           <tr v-for="(item, index) in projects" :key="index">
-            <th scope="row">{{++index}}</th>
+            <th class="number">{{++index}}</th>
             <td><b>{{item.name}}</b></td>
             <td class="text-center">
               <a :href="item.git" target="_blank">git</a>
