@@ -1,5 +1,3 @@
-/// <reference path="../../typeDef/p5.global-mode.d.ts" />
-
 const size = 400;
 
 function setup() {
@@ -8,7 +6,7 @@ function setup() {
   numbers = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
   strokeWeight(2);
   stroke("snow");
-  colorMode(HSB, 10);
+  colorMode(HSB, numbers.length, 1, 1);
 }
 
 function draw() {
@@ -20,7 +18,7 @@ function draw() {
   width = size / numbers.length;
   maxNumber = max(numbers);
   numbers.forEach((item, index) => {
-    fill(index, 10, 10);
+    fill(index, 1, 1);
     mapValue = map(item, 0, maxNumber, 0, -0.75 * size, true);
     rect(0, 0, width, mapValue);
     translate(width, 0);
@@ -28,7 +26,7 @@ function draw() {
 }
 
 const myCustomFunction = () => {
-  randomIndex = int(random(10));
+  randomIndex = int(random(numbers.length));
   //randomIndex = Math.floor(Math.random() * 10);
   numbers[randomIndex]++;
 };

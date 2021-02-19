@@ -1,44 +1,36 @@
-// Bouncing Ball
-let count = 0;
-const height = 400;
-const width = 400;
-
-let myBall = {
-  pos: {
-    x: Math.random() * (width - 2 * 40) + 40,
-    y: Math.random() * (height - 2 * 40) + 40,
-  },
-  vel: {
-    x: 0.6,
-    y: 0.8,
-  },
-  r: 40,
-}
-
-
 function setup() {
+  const height = 400;
+  const width = 400;
   const canvas = createCanvas(width, height);
-  canvas.parent('p5canvas');
-  setFrameRate(30);
+  canvas.parent("p5canvas");
+  velVector = p5.Vector.random2D().mult(random(1.2, 3.8));
+  myBall = {
+    pos: {
+      x: random(40, width - 80),
+      y: random(40, height - 80),
+    },
+    vel: {
+      x: velVector.x,
+      y: velVector.y,
+    },
+    r: int(random(30, 60)),
+  };
 }
 
 function draw() {
   background(220, 10, 104);
-  // console.log(myBall);
   updateBall(myBall);
   drawBall(myBall);
-  
   vm.fps = frameRate().toFixed(1);
 }
 
 function drawBall(ball) {
-  // ellipse(50,50,80,80);
   ellipse(ball.pos.x, ball.pos.y, 2 * ball.r, 2 * ball.r);
 }
 
 function updateBall(ball) {
   // update new pos
-  
+
   // check walls
   // x
   if (ball.pos.x < ball.r) {
@@ -47,7 +39,7 @@ function updateBall(ball) {
   }
   if (ball.pos.x > width - ball.r) {
     ball.pos.x = width - ball.r;
-    ball.vel.x = Math.abs(ball.vel.x)*-1;
+    ball.vel.x = Math.abs(ball.vel.x) * -1;
   }
   // y
   if (ball.pos.y < ball.r) {
@@ -56,7 +48,7 @@ function updateBall(ball) {
   }
   if (ball.pos.y > height - ball.r) {
     ball.pos.y = height - ball.r;
-    ball.vel.y = Math.abs(ball.vel.y)*-1;
+    ball.vel.y = Math.abs(ball.vel.y) * -1;
   }
 
   // update x, y with velocity
