@@ -23,7 +23,7 @@
     {
       "name": "Arrow Points Mouse",
       "git": "https://github.com/GokselKUCUKSAHIN/p5js-repo/blob/main/docs/pages/arrow",
-      "live": "pages/arrow/arrow.html"
+      "live": "pages/arrow/arrowPage.html"
     },
     {
       "name": "Cone Rotate",
