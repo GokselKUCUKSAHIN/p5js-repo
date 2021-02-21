@@ -21,6 +21,11 @@
       "live": "pages/normalDistribution/normalDist.html"
     },
     {
+      "name": "Arrow Points Mouse",
+      "git": "https://github.com/GokselKUCUKSAHIN/p5js-repo/blob/main/docs/pages/arrow",
+      "live": "pages/arrow/arrowPage.html"
+    },
+    {
       "name": "Cone Rotate",
       "git": "https://github.com/GokselKUCUKSAHIN/p5js-repo/blob/main/docs/pages/coneRotate",
       "live": "pages/coneRotate/coneRotate.html"
