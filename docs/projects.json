@@ -31,6 +31,11 @@
       "live": "pages/coneRotate/coneRotate.html"
     },
     {
+      "name": "Swinging Pendulum",
+      "git": "https://github.com/GokselKUCUKSAHIN/p5js-repo/blob/Ver2/docs/pages/swingingPendulum",
+      "live": "pages/swingingPendulum/swingingPendulum.html"
+    },
+    {
       "name": "Roller",
       "git": "https://github.com/GokselKUCUKSAHIN/p5js-repo",
       "live": "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
