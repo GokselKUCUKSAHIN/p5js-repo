@@ -39,30 +39,32 @@
     </style>
   </head>
   <body>
-    <div class="container mt-4" id="app">
-      <h2 class="mb-3"><span style="color: #ed265d">p5.js</span> Projects</h2>
-      <table class="table table-sm table-bordered table-striped">
-        <thead>
-          <tr>
-            <th scope="col" class="text-center">#</th>
-            <th scope="col">Project Name</th>
-            <th scope="col" class="text-center">GitHub Page</th>
-            <th scope="col" class="text-center">Live Preview</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr v-for="(item, index) in projects" :key="index">
-            <th class="number text-center">{{++index}}</th>
-            <td><b>{{item.name}}</b></td>
-            <td class="text-center">
-              <a :href="item.git" target="_blank">GitHub URL</a>
-            </td>
-            <td class="text-center">
-              <a :href="item.live" target="_blank">Live</a>
-            </td>
-          </tr>
-        </tbody>
-      </table>
+    <div id="app">
+      <div class="container mt-4">
+        <h2 class="mb-3"><span style="color: #ed265d">p5.js</span> Projects</h2>
+        <table class="table table-sm table-bordered table-striped">
+          <thead>
+            <tr>
+              <th scope="col" class="text-center">#</th>
+              <th scope="col">Project Name</th>
+              <th scope="col" class="text-center">GitHub Page</th>
+              <th scope="col" class="text-center">Live Preview</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr v-for="(item, index) in projects" :key="index">
+              <th class="number text-center">{{++index}}</th>
+              <td><b>{{item.name}}</b></td>
+              <td class="text-center">
+                <a :href="item.git" target="_blank">GitHub URL</a>
+              </td>
+              <td class="text-center">
+                <a :href="item.live" target="_blank">Live</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
     <!-- VUE INSTANCE -->
     <script>
