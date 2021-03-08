@@ -28,4 +28,9 @@ class Automata {
   create2DArray = (r, c, value) => {
     return [...Array(r)].map((x) => Array(c).fill(value));
   };
+
+  toggleCell(x, y)
+  {
+    this.cells[x][y].isAlive = !this.cells[x][y].isAlive; 
+  }
 }
