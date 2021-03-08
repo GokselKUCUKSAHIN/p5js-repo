@@ -1,19 +1,16 @@
 class Cell {
-  static margin = 0;
-  constructor(width = 0, height = 0, x = 0, y = 0) {
-    this.w = width;
-    this.h = height;
+  constructor(x, y, width = 0, height = 0) {
     this.x = x;
     this.y = y;
+    this.w = width;
+    this.h = height;
     this.isAlive = false;
   }
 
-  draw() {
-    // push();
+  drawCell() {
+    this.isAlive = random() < 0.5;
     fill(this.isAlive ? 0 : 255);
-    //  rectMode(CENTER);
-    rect(this.x, this.y, 10, 10);
-    //console.log(this.x, this.y);
-    // pop();
+    // rectMode(CENTER);
+    rect(this.x, this.y, this.w, this.h);
   }
 }

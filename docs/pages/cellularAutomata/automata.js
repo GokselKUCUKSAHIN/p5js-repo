@@ -1,34 +1,31 @@
 class Automata {
-
-  constructor(size = 0, row = 1, col = 1) {
+  constructor(size = 0, col = 1, row = 1) {
     this.size = size;
     this.r = row;
     this.c = col;
-    this.cellWidth = size / col;
-    this.cellHeigth = size / row;
+    this.cellWidth = size / row;
+    this.cellHeigth = size / col;
     this.cells = this.create2DArray(row, col);
     this.init();
   }
 
   init() {
-    // Cell.margin = this.size * 0.01;
-    console.log(this.r, this.c);
     for (let i = 0; i < this.c; i++) {
       for (let j = 0; j < this.r; j++) {
-        var temp = new Cell(this.cellWidth, this.cellHeigth, j * this.cellWidth, i * this.cellHeigth);
-        this.cells[j][i] = temp;
-        // console.log(temp.x, temp.y);
+        this.cells[j][i] = new Cell(j * this.cellWidth, i * this.cellHeigth, this.cellWidth, this.cellHeigth);
       }
     }
   }
 
-  draw() {
-    for (let y = 0; y < this.c; y++) {
-      for (let x = 0; x < this.r; x++) {
-        this.cells[x][y].draw();
-      }
-    }
+  drawAutomata() {
+    this.cells.forEach((row) => {
+      row.forEach((item) => {
+        item.drawCell();
+      });
+    });
   }
 
-  create2DArray = (r, c, value) => new Array(r).fill(new Array(c).fill(value));
+  create2DArray = (r, c, value) => {
+    return [...Array(r)].map((x) => Array(c).fill(value));
+  };
 }
