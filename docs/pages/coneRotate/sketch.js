@@ -2,6 +2,8 @@ function setup() {
   size = 400;
   const canvas = createCanvas(size, size, WEBGL);
   canvas.parent("p5canvas");
+  img = loadImage('assets/wood.jpg');
+
   //
   detailX = createSlider(1, 24, 3);
   detailX.position(5, height + 10);
@@ -29,5 +31,6 @@ function draw() {
   rotateX(rx.value());
   rotateY(ry.value());
   rotateZ(rz.value());
+  texture(img);
   cone(120, 260, detailX.value(), detailY.value());
 }

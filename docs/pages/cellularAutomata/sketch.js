@@ -7,11 +7,11 @@ function setup() {
   canvas.parent("p5canvas");
   background(23, 200, 146);
   strokeWeight(2);
-  row = 15;
-  col = 15;
+  row = 5;
+  col = 20;
   cellW = size / col;
   cellH = size / row;
-  automata = new Automata(size, col, row);
+  automata = new Automata(size, row, col);
   //setFrameRate(5);
 }
 
