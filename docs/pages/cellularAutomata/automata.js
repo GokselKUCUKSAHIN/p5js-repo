@@ -10,14 +10,10 @@ class Automata {
   }
 
   init() {
-    for (let i = 0; i < this.c; i++) {
-      for (let j = 0; j < this.r; j++) {  
-        this.cells[j][i] = new Cell(
-          j * this.cellWidth,
-          i * this.cellHeigth,
-          this.cellWidth,
-          this.cellHeigth
-        );
+    for (let i = 0; i < this.r; i++) {
+      for (let j = 0; j < this.c; j++) {
+        this.cells[i][j] = new Cell(i, j, this.cellWidth, this.cellHeigth);
+        this.cells[i][j].isNext = random() < 0.5;
       }
     }
   }
@@ -26,6 +22,7 @@ class Automata {
     this.cells.forEach((row) => {
       row.forEach((item) => {
         item.drawCell();
+        item.nextGen();
       });
     });
   }
@@ -39,7 +36,7 @@ class Automata {
         neighborCount++;
       }
     }
-
+    
     if (c.y < this.r - 1) {
       //up
       if (this.cells[c.x][c.y + 1].isAlive) {
@@ -92,19 +89,37 @@ class Automata {
   }
 
   updateAutomata() {
-    
+    let neigbors = 0;
+    for (let i = 0; i < this.r; i++) {
+      for (let j = 0; j < this.c; j++) {
+        let cell = this.cells[i][j];
+        neigbors = this.countNeighbors(i, j);
 
+        // RULE 1
+        if (!cell.isAlive && neigbors === 3) {
+          cell.isNext = true;
+        }
+        // RULE 2
+        else if (cell.isAlive && (neigbors < 2 || neigbors > 3)) {
+          cell.isNext = false;
+        }
+        // RULE 3
+        else {
+          cell.isNext = cell.isAlive;
+        }
+      }
+    }
   }
 
-  create2DArray = (r, c, value) => {
-    return [...Array(r)].map((x) => Array(c).fill(value));
-  };
-
   toggleCell(x, y) {
-    this.cells[x][y].isAlive = !this.cells[x][y].isAlive;
+    this.cells[x][y].isNext = !this.cells[x][y].isNext;
   }
 
   setCell(x, y, state) {
     this.cells[x][y].isAlive = !!state;
   }
+
+  create2DArray = (r, c, value) => {
+    return [...Array(r)].map((x) => Array(c).fill(value));
+  };
 }

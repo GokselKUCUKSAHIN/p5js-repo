@@ -2,31 +2,41 @@ const size = 500;
 
 function setup() {
   const canvas = createCanvas(size, size);
-  text = "";
-  p = createP(text);
+  isStarted = false;
   canvas.parent("p5canvas");
   background(23, 200, 146);
   strokeWeight(2);
-  row = 5;
+  row = 20;
   col = 20;
   cellW = size / col;
   cellH = size / row;
   automata = new Automata(size, row, col);
-  //setFrameRate(5);
+  setFrameRate(30);
 }
 
 function draw() {
-  p.elt.innerText = text;
-  automata.drawAutomata();
+  automata.drawAutomata(); 
+  if (isStarted) {
+    automata.updateAutomata();
+  }
 }
 
 function mouseClicked() {
-  text = `${mouseX}, ${mouseY}`;
+  isStarted = false;
+  //text = `${mouseX}, ${mouseY}`;
   if (mouseX >= 0 && mouseX <= size && mouseY >= 0 && mouseY <= size) {
     // valid click
     x = Math.floor(mouseX / cellW);
     y = Math.floor(mouseY / cellH);
     automata.toggleCell(x, y);
-    text = `${x}, ${y} cell`;
+    //text = `${x}, ${y} cell`;
+  }
+}
+
+function keyPressed()
+{
+  if (keyCode === 32)
+  {
+    isStarted = true;
   }
 }

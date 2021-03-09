@@ -4,13 +4,20 @@ class Cell {
     this.y = y;
     this.w = width;
     this.h = height;
-    this.isAlive = true;
+    this.isNext = false;
+    this.isAlive = this.isNext;
+    
   }
 
   drawCell() {
     //this.isAlive = random() < 0.5; // for testing
     fill(this.isAlive ? 255 : 0);
     // rectMode(CENTER);
-    rect(this.x, this.y, this.w, this.h);
+    rect(this.x * this.w, this.y * this.h, this.w, this.h);
+  }
+
+  nextGen()
+  {
+    this.isAlive = this.isNext;
   }
 }
