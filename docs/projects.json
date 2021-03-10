@@ -37,7 +37,7 @@
     },
     {
       "name": "WebGL DEMO",
-      "git": "https://github.com/GokselKUCUKSAHIN/p5js-repo/tree/main/docs/pages/gitGud",
+      "git": "https://github.com/GokselKUCUKSAHIN/p5js-repo/main/docs/pages/gitGud",
       "live": "pages/gitGud/webglp5demo.html"
     },
     {
