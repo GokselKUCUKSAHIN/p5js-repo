@@ -43,7 +43,7 @@
     {
       "name": "Convey's Game of Life",
       "git": "https://github.com/GokselKUCUKSAHIN/p5js-repo/blob/main/docs/pages/cellularAutomata",
-      "live": "pages/pages/cellularAutomata/automata.html"
+      "live": "pages/cellularAutomata/automata.html"
     },
     {
       "name": "Roller",
