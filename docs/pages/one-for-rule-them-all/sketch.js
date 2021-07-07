@@ -9,9 +9,7 @@ const R = 13;
 const twoRingOrbitPlacement = [35, 70];
 const tenRingOrbitPlacement = [8, 16, 24, 32, 40, 48, 56, 64, 72, 80];
 
-let masterOrbit;
-
-const bitstr = [1, 0, 0, 1, 1, 1, 1, 1, 0, 1, 0, 0, 0, 0, 0, 0,
+const bitstrTwo = [1, 0, 0, 1, 1, 1, 1, 1, 0, 1, 0, 0, 0, 0, 0, 0,
   1, 1, 0, 0, 0, 1, 1, 1, 1, 1, 0, 1, 0, 1, 1, 1,
   0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 1, 1, 1, 1, 1, 0,
   0, 1, 0, 1, 1, 1, 1, 0, 1, 0, 0, 1, 1, 0, 1, 1,
@@ -19,29 +17,55 @@ const bitstr = [1, 0, 0, 1, 1, 1, 1, 1, 0, 1, 0, 0, 0, 0, 0, 0,
   1, 0, 1, 0, 1, 0, 1, 1, 0, 1, 0, 0, 0, 1, 0, 1,
   0, 0, 1, 0, 0, 0, 0, 1, 0];
 
+const bitstrTen = [0, 0, 1, 0, 1, 0, 1, 1, 1, 0, 1, 1, 0, 0, 0, 1, 1, 1, 0, 0, 0, 1, 0,
+  0, 1, 0, 0, 1, 1, 0, 1, 1, 0, 1, 1, 1, 1, 1, 0, 1, 1, 0, 0, 0, 1, 0,
+  1, 1, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 0, 1, 1, 1, 1, 0, 0,
+  1, 0, 1, 0, 0, 1, 1, 1, 0, 0, 1, 0, 0, 0, 1, 0, 1, 1, 1, 1, 1, 1, 1,
+  1, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1,
+  0, 1, 0, 0, 1, 0, 0, 1, 0, 1, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 1, 1, 0,
+  0, 1, 0, 1, 0, 1, 0, 1, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0,
+  0, 0, 0, 0, 1, 1, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0,
+  0, 1, 0, 1, 1, 1, 0, 1, 0, 1, 0, 0, 1, 0, 1, 1, 0, 1, 1, 1, 1, 1, 0,
+  1, 0, 1, 0, 0, 0, 1, 1, 1, 0, 0, 0, 1, 1, 0, 0, 1, 1, 1, 0, 0, 0, 1,
+  1, 0, 1, 1, 1, 0, 1, 0, 0, 1, 1, 0, 0, 0, 0, 1, 1, 0, 0, 0, 1, 0, 1,
+  0, 0, 0, 0, 1, 0, 1, 0, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 0, 0, 0, 1,
+  1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0,
+  0, 0, 0, 1, 0, 0, 1, 1, 0, 1, 1, 0, 1, 0, 1, 1, 0, 0, 0, 0, 1, 1, 0,
+  0, 1, 0, 0, 1, 1, 1, 1, 0, 1, 1, 0, 0, 0, 0, 0, 1, 1, 0, 1, 1, 1, 0,
+  0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0,
+  0, 1, 0, 1, 1, 0, 1, 0, 0, 1, 1, 0, 1, 0, 1, 0, 1, 1, 0, 1, 0, 1, 0,
+  0, 1, 0, 1, 0, 0, 1, 0, 1, 1, 0, 0, 1, 1, 1, 0, 0, 1, 1, 0, 0, 0, 1,
+  0, 0, 1, 1, 0, 0, 0, 1, 0, 0, 1, 0, 1, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0,
+  1, 1, 1];
+let masterOrbit;
+let bitString;
+
 function setup() {
   const canvas = createCanvas(width, height);
   canvas.parent("p5canvas");
   colorActive = color(10, 130, 199);
   colorDeactive = color(255, 255, 255);
   colorStroke = color(223, 0, 83);
-  masterOrbit = calculateOrbitArray(twoRingOrbitPlacement, 190);
+  //
+  masterOrbit = calculateOrbitArray(tenRingOrbitPlacement, 190);
+  bitString = bitstrTen;
+  //
   stroke(162, 20, 47);
   textFont('Helvetica');
   strokeWeight(0.5);
   noFill();
-  frameRate(5);
-  // noLoop();
+  // frameRate(5);
+  noLoop();
+}
+
+function setBitstring(bitStr) {
+  bitString = bitStr;
 }
 
 function draw() {
   background(240);
-  drawOrbits(400, masterOrbit, bitstr);
+  drawOrbits(400, masterOrbit, bitString);
   console.count("FrameRate");
-}
-
-function isMatch(orbit, bitString) {
-  return bitString.length === orbit.reduce((acc, curr) => acc + curr);
 }
 
 function calculateOrbitArray(orbit, range) {
@@ -67,7 +91,7 @@ function calculateOrbit(count, range) {
 }
 
 function drawAntenna(x, y, r, isOn) {
-  if (isOn) {
+  if (!!isOn) {
     fill(colorActive);
     stroke(colorActive);
   } else {
