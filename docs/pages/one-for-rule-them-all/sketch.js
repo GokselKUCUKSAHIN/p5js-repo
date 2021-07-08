@@ -69,7 +69,7 @@ function draw() {
   if (builded) {
     drawOrbits(400, masterOrbit, bitString);
   }
-  console.count("FrameRate");
+  // console.count("FrameRate");
 }
 
 function setBitstring(bitStr) {
@@ -104,8 +104,6 @@ function drawOrbits(size, orbit, bitString) {
       // Good to go
       push();
       translate(size / 2, size / 2);
-      fill(255, 0, 0);
-      ellipse(0, 0, 5);
       //
       for (let i = 0; i < bitString.length; i++) {
         const antenna = orbit[i];

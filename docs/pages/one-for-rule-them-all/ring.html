@@ -13,13 +13,20 @@
 <div id="p5canvas"></div>
 <div id="app">
   <button @click="createRandomBitString">Random BitString</button>
+  <br>
+  <span>Picked: {{ mode }}</span>
+  <br>
+  <input @change="modeChanged" type="radio" id="two" value="TWO_RING" v-model="mode">
+  <label for="two">Two Ring</label>
+  <input @change="modeChanged" type="radio" id="ten" value="TEN_RING" v-model="mode">
+  <label for="ten">Ten Ring</label>
 </div>
 <script>
   const vueInstance = new Vue({
     el: "#app",
     data: {
       bitString: [],
-      mode: 'TEN_RING',
+      mode: 'TWO_RING',
       ringCount: {
         'TEN_RING': 440,
         'TWO_RING': 105
@@ -34,6 +41,9 @@
         // console.log(this.bitString);
         setBitstring(this.bitString);
         draw();
+      },
+      modeChanged() {
+        build(this.mode);
       },
       randomBoolean() {
         return Math.random() < 0.5;
