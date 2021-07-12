@@ -120,8 +120,8 @@ function setup() {
   textFont('Helvetica');
   strokeWeight(1.2);
   noFill();
-  // frameRate(10);
-  noLoop();
+  frameRate(15);
+  // noLoop();
 }
 
 function draw() {
