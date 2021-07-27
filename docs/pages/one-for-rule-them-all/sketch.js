@@ -65,11 +65,12 @@ function setup() {
 }
 
 function draw() {
+
   background(240);
   if (builded) {
     drawOrbits(400, masterOrbit, bitString);
   }
-  // console.count("FrameRate");
+  console.count("FrameRate");
 }
 
 function setBitstring(bitStr) {

@@ -66,18 +66,35 @@ const data2 = [
   -19.722, -19.686, -19.676, -19.681, -19.691, -19.699, -19.702
 ];
 
-const data3 = getPoints([1, 0, 0, 1, 1, 1, 1, 1, 0, 1, 0, 0, 0, 0, 0, 0,
-  1, 1, 0, 0, 0, 1, 1, 1, 1, 1, 0, 1, 0, 1, 1, 1,
-  0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 1, 1, 1, 1, 1, 0,
-  0, 1, 0, 1, 1, 1, 1, 0, 1, 0, 0, 1, 1, 0, 1, 1,
-  0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0,
-  1, 0, 1, 0, 1, 0, 1, 1, 0, 1, 0, 0, 0, 1, 0, 1,
-  0, 0, 1, 0, 0, 0, 0, 1, 0]
+const data3 = getPoints([0, 1, 0, 1, 1, 0, 0, 1, 1, 0, 1, 1,
+  1, 0, 0, 1, 0, 1, 1, 0, 0, 1, 1, 0, 1, 1, 1, 1, 0, 1, 1, 0, 0,
+  1, 1, 0, 0, 0, 0, 1, 0, 0, 1, 0, 1, 0, 0, 0, 0, 1, 1, 1, 0, 1,
+  1, 0, 1, 1, 1, 0, 1, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 0,
+  1, 0, 1, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1, 1, 1, 1, 0, 1, 0, 1, 0,
+  0, 1, 1, 0, 0, 1, 1, 0, 0]
 );
+
+const data4 = getPoints([1, 0, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1
+  , 1, 0, 1, 0, 1, 0, 0, 0, 1, 1, 0, 1, 1, 0, 1, 0, 1, 0, 1, 0, 0,
+  0, 0, 0, 0, 0, 1, 0, 1, 1, 0, 0, 1, 1, 1, 0, 1, 1, 1, 0, 1, 1, 0,
+  0, 0, 1, 0, 1, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0,
+  1, 1, 1, 1, 0, 0, 1, 1, 0, 1, 1, 1, 1, 0, 0, 0, 1, 0, 1, 1, 0, 0,
+  0, 0, 0, 0, 0, 1]);
+
+const data5 = getPoints([, 1, 0, 1, 1, 0, 0, 1, 0, 0, 1, 1, 0, 1, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 1, 1, 1, 1, 1, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 1, 1, 1, 1, 0, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 1, 1, 0, 0, 1, 0, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 1, 1, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0]);
+const data6 = getPoints([0, 0, 0, 0, 1, 1, 1, 1, 1, 0, 1, 0, 1, 1, 0, 0, 1, 1, 0, 1, 0, 1, 1, 1, 1, 1, 0, 1, 1, 1, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 0, 1, 0, 1, 1, 1, 0, 1, 1, 0, 1, 0, 0, 0, 0, 1, 1, 1, 0, 1, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 1, 0, 1, 0, 0, 0, 1, 1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1]);
+const data7 = getPoints([0, 1, 0, 1, 1, 0, 1, 0, 1, 1, 1, 1, 1, 0, 1, 0, 1, 1, 0, 0, 0, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 1, 1, 1, 1, 0, 1, 0, 1, 1, 1, 1, 1, 1, 0, 1, 0, 0, 1, 0, 1, 1, 0, 1, 0, 0, 0, 1, 1]);
+const data8 = getPoints([0, 0, 0, 1, 0, 0, 0, 0, 1, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 1, 1, 1, 1, 1, 1, 0, 1, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0, 0, 1, 0, 1, 1, 1, 1, 1, 1, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 0, 0, 1, 0, 0, 0, 0, 1, 0]);
 
 const modifedData = lineerInterpolate(data1).map(x => x + 60);
 const modifedData2 = lineerInterpolate(data2).map(x => x + 60);
 const modifedData3 = lineerInterpolate(data3).map(x => x + 60);
+const modifedData4 = lineerInterpolate(data4).map(x => x + 60);
+const modifedData5 = lineerInterpolate(data5).map(x => x + 60);
+const modifedData6 = lineerInterpolate(data6).map(x => x + 60);
+const modifedData7 = lineerInterpolate(data7).map(x => x + 60);
+const modifedData8 = lineerInterpolate(data8).map(x => x + 60);
+
 
 function randomBoolean() {
   return Math.random() < 0.5;
@@ -120,8 +137,8 @@ function setup() {
   textFont('Helvetica');
   strokeWeight(1.2);
   noFill();
-  frameRate(15);
-  // noLoop();
+  // frameRate(15);
+  noLoop();
 }
 
 function draw() {
@@ -131,9 +148,12 @@ function draw() {
   drawRadarCircles();
   drawRadarLines();
   drawNumbers(180);
-  const arr = lineerInterpolate(getPoints(randomBitstring(105))).map(x => x + 60);
-  drawPolarPlot(arr, color(162, 20, 47, 180));
-  // drawPolarPlot(modifedData2, color(20, 100, 200, 180), LINES);
+  // const arr = lineerInterpolate(getPoints(randomBitstring(105))).map(x => x + 60);
+  // drawPolarPlot(modifedData3, color(20, 100, 20, 180));
+  // drawPolarPlot(modifedData4, color(20, 160, 47, 180));
+  drawPolarPlot(modifedData5, color(30, 160, 47, 180));
+  drawPolarPlot(modifedData7, color(162, 20, 47, 180));
+  drawPolarPlot(modifedData8, color(20, 47, 162, 180));
   pop();
 }
 

@@ -12,7 +12,7 @@
 <body>
 <div id="p5canvas"></div>
 <div id="app">
-  <button @click="createRandomBitString">Random BitString</button>
+  <button @click="createRandomBitString">Draw Ring Thinning Plot</button>
   <br>
   <span>Picked: {{ mode }}</span>
   <br>
@@ -38,7 +38,6 @@
           build(this.mode);
         }
         this.bitString = [...Array(this.ringCount[this.mode])].map(this.randomBoolean);
-        // console.log(this.bitString);
         setBitstring(this.bitString);
         draw();
       },
