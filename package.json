@@ -1,0 +1,29 @@
+{
+  "name": "p5js-repo",
+  "version": "0.1.7",
+  "description": "p5js repository project",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GokselKUCUKSAHIN/p5js-repo.git"
+  },
+  "keywords": [
+    "p5js",
+    "repo"
+  ],
+  "author": "Goksel KUCUKSAHIN",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/GokselKUCUKSAHIN/p5js-repo/issues"
+  },
+  "homepage": "https://github.com/GokselKUCUKSAHIN/p5js-repo#readme",
+  "devDependencies": {
+    "@types/p5": "^1.3.1"
+  }
+}
