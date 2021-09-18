@@ -4,14 +4,15 @@ class Pendulum {
   constructor(origin, length) {
     this.origin = origin;
     this.length = length;
+    this.r = 50;
     this.theta = PI / 3;
     this.angularVel = 0;
     this.angularAcc = 0.000011;
+    this.ballOrigin = createVector();
     this.calculate();
   }
 
   calculate() {
-    this.ballOrigin = createVector();
     this.ballOrigin.x = sin(this.theta) * this.length;
     this.ballOrigin.y = cos(this.theta) * this.length;
   }
@@ -39,7 +40,7 @@ class Pendulum {
     // Bob
     strokeWeight(2);
     fill(255, 255, 0, 128);
-    ellipse(this.ballOrigin.x, this.ballOrigin.y, 50, 50);
+    ellipse(this.ballOrigin.x, this.ballOrigin.y, this.r, this.r);
     pop();
   }
 }
