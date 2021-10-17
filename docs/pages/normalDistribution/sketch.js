@@ -3,15 +3,15 @@ const size = 400;
 function setup() {
   const canvas = createCanvas(size, size);
   canvas.parent("p5canvas");
-  numbers = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
-  strokeWeight(2);
+  numbers = Array(1000).fill(0);
+  strokeWeight(0.01);
   stroke("snow");
   colorMode(HSB, numbers.length, 1, 1);
 }
 
 function draw() {
   background("#333");
-  for (let i = 0; i < 15; i++) {
+  for (let i = 0; i < 1500; i++) {
     myCustomFunction();
   }
   translate(0, size);
@@ -26,7 +26,22 @@ function draw() {
 }
 
 const myCustomFunction = () => {
-  randomIndex = int(random(numbers.length));
+  randomIndex = int(gaussianRandomRange(0,numbers.length,3));
   //randomIndex = Math.floor(Math.random() * 10);
   numbers[randomIndex]++;
 };
+
+const gaussianRandom = (degree = 3) => {
+  let rand = 0;
+  for (let i = 0; i < degree; i++) {
+    rand += Math.random();
+  }
+  const gauss = rand / degree;
+  return (gauss * 2) - 1; // (-1, 1)
+}
+
+const gaussianRandomRange = (start, end, degree = 3) => {
+  const min = !!end ? start : 0;
+  const max = !!end ? end : start;
+  return min + (0.5 * (1 + gaussianRandom(degree))) * (max - min);
+}
