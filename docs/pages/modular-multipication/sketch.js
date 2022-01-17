@@ -10,38 +10,25 @@ function setup() {
   fill(color(255, 0, 0));
 
   ellipse(center.x, center.y, 10, 10);
-  const slider = createSlider(1, 24, 12, 1);
-  slider.style("width", "300px");
-  slider.parent("sliders")
+
+  // MODULO
+  moduloSlider = select("#modulo");
+  moduloSlider.input(moduloEvent);
+
+  // DOT COUNT
+  dotCountSlider = select("#dot-count");
+  dotCountSlider.input(dotCountEvent);
 }
 
 function draw() {
-  /*
-  background(51);
-  push();
-  strokeWeight(4);
-  //vec = createVector(138.564, -80);
-
-
-  vec = createVector(mouseX - center.x, mouseY - center.y).setMag(150);
-  drawArrow(center, vec, "black");
-  pop();
-  */
+  select('#modulo').value();
 }
 
-/*
-const drawArrow = (base, vec, color) => {
-  push();
-  translate(base.x, base.y);
-  stroke(color);
-  fill(color);
-  strokeWeight(3);
-  line(0, 0, vec.x, vec.y);
-  rotate(vec.heading());
-  let arrowSize = 7;
-  translate(vec.mag() - arrowSize, 0);
-  triangle(arrowSize, 0, 0, arrowSize * 0.5, 0, arrowSize * -0.5);
-  pop();
-};
+// EVENTS
+function moduloEvent() {
+  console.log("Modulo Event Triggred:", moduloSlider.value());
+}
 
- */
+function dotCountEvent() {
+  console.log("Dot Count Event Triggred:", dotCountSlider.value());
+}
