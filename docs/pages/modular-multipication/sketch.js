@@ -4,6 +4,8 @@ const sliders = {
   modulo: 0,
   dotCount: 0
 };
+const events = new Tuple();
+
 
 function setup() {
   center = createVector(width / 2, height / 2);
@@ -42,6 +44,7 @@ function moduloEvent() {
 
 function dotCountEvent() {
   const sliderValue = sliders.dotCount.value();
+  events.a = sliderValue;
   console.log("Dot Count Event Triggred:", sliderValue);
   drawDots(sliderValue);
 }
@@ -55,3 +58,31 @@ function drawDots(dotCount) {
   }
   redraw(1);
 }
+
+class Tuple {
+  constructor(a = 0, b = 0) {
+    this._a = a;
+    this._b = b;
+  }
+
+  get a() {
+    return this._a;
+  }
+
+  get b() {
+    return this._b;
+  }
+
+  set a(value) {
+    this._a = value;
+  }
+
+  set b(value) {
+    this._b = value;
+  }
+
+  getTuple() {
+    return [this.a, this.b];
+  }
+}
+
