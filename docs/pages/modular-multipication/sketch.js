@@ -7,7 +7,6 @@ const sliders = {
 
 const drawRoutine = drawRoutineFactory();
 
-
 function setup() {
   center = createVector(width / 2, height / 2);
   const canvas = createCanvas(width, height);
@@ -84,11 +83,14 @@ function drawLineWithPoints(p1, p2) {
 
 function drawLinks(links) {
   push();
+  colorMode(HSB, 255);
   noFill();
-  stroke(color(230)); // SNOW
+  // stroke(230);
   strokeWeight(1);
-  for (let i = 0; i < links.length; i += 2)
+  for (let i = 0, c = 100; i < links.length; i += 2, c += 0.5) {
+    stroke(color(c, 255, 255));
     drawLineWithPoints(links[i], links[i + 1]);
+  }
   pop();
 }
 
