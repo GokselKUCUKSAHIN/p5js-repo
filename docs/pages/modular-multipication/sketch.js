@@ -61,8 +61,8 @@ function drawDots(dotCount) {
 }
 
 function drawRoutineFactory() {
-  let dot = 1;
-  let modulo = 1;
+  let dot = 10;
+  let modulo = 2;
   return function (d = dot, m = modulo) {
     if (!!d) dot = d;
     if (!!m) modulo = m;
