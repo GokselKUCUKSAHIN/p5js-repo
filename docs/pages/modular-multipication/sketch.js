@@ -4,10 +4,12 @@ const sliders = {
   modulo: 0,
   dotCount: 0
 };
-const events = new Tuple();
+
+const drawRoutine = drawRoutineFactory();
 
 
 function setup() {
+  tuple = new Tuple();
   center = createVector(width / 2, height / 2);
   const canvas = createCanvas(width, height);
   canvas.parent("p5canvas");
@@ -39,50 +41,34 @@ function draw() {
 
 // EVENTS
 function moduloEvent() {
-  console.log("Modulo Event Triggred:", sliders.modulo.value());
+  // console.log("Modulo Event Triggred:", sliders.modulo.value());
+  const sliverValue = sliders.modulo.value();
+  drawRoutine(undefined, sliverValue);
 }
 
 function dotCountEvent() {
+  // console.log("Dot Count Event Triggred:", sliderValue);
   const sliderValue = sliders.dotCount.value();
-  events.a = sliderValue;
-  console.log("Dot Count Event Triggred:", sliderValue);
-  drawDots(sliderValue);
+  drawRoutine(sliderValue);
 }
 
 function drawDots(dotCount) {
-  background(51);
   const gap = TWO_PI / dotCount;
   for (let i = -1.5707963267948966; i < 4.71238898038469; i += gap) {
     const point = calcEndPoint(center, i, 300);
     ellipse(point.x, point.y, 5);
   }
-  redraw(1);
 }
 
-class Tuple {
-  constructor(a = 0, b = 0) {
-    this._a = a;
-    this._b = b;
-  }
-
-  get a() {
-    return this._a;
-  }
-
-  get b() {
-    return this._b;
-  }
-
-  set a(value) {
-    this._a = value;
-  }
-
-  set b(value) {
-    this._b = value;
-  }
-
-  getTuple() {
-    return [this.a, this.b];
+function drawRoutineFactory() {
+  let dot = 1;
+  let modulo = 1;
+  return function (d = dot, m = modulo) {
+    if (!!d) dot = d;
+    if (!!m) modulo = m;
+    console.log("d:", dot, "m:", modulo);
+    background(51);
+    drawDots(dot);
+    redraw(1);
   }
 }
-
