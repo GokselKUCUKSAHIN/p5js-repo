@@ -35,8 +35,12 @@
           padding: 10px;
       }
 
-      label {
+      label, span {
           color: white;
+      }
+
+      span {
+          font-size: 16px;
       }
   </style>
 </head>
@@ -46,10 +50,12 @@
   </div>
   <div id="sliders">
     <label for="dot-count">dot count: </label>
-    <input id="dot-count" type="range" min="1" max="150" value="10" step="1" style="width: 300px;">
+    <input id="dot-count" type="range" min="1" max="250" value="10" step="1" style="width: 300px;">
+    <span id="dot-value">10</span>
     <br/>
     <label for="modulo">multiplier: </label>
-    <input id="modulo" type="range" min="2" max="20" value="2" step="1" style="width: 300px;">
+    <input id="modulo" type="range" min="2" max="45" value="2" step="1" style="width: 300px;">
+    <span id="modulo-value">2</span>
   </div>
 </div>
 </body>
