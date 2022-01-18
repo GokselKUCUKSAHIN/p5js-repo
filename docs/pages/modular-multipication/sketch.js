@@ -9,15 +9,10 @@ const drawRoutine = drawRoutineFactory();
 
 
 function setup() {
-  // tuple = new Tuple();
   center = createVector(width / 2, height / 2);
   const canvas = createCanvas(width, height);
   canvas.parent("p5canvas");
-  // stroke(0);
-  // strokeWeight(2);
 
-  // fill(color(255, 0, 0)); // RED
-  // ellipse(center.x, center.y, 10);
   // MODULO
   sliders.modulo = select("#modulo");
   sliders.modulo.input(moduloEvent);
@@ -32,9 +27,10 @@ function setup() {
   // DOT COUNT SPAN
   dotSpan = document.querySelector("#dot-value");
 
+  // DEFAULT STYLE
   fill(color(255, 255, 0)); // YELLOW
   noStroke();
-  // TEST
+
   noLoop();
   drawRoutine(10, 2);
 }
@@ -82,16 +78,17 @@ function drawDots(dots) {
   for (const dot of dots) ellipse(dot.x, dot.y, 6);
 }
 
+function drawLineWithPoints(p1, p2) {
+  line(p1.x, p1.y, p2.x, p2.y);
+}
+
 function drawLinks(links) {
   push();
   noFill();
-  stroke(color(230));
+  stroke(color(230)); // SNOW
   strokeWeight(1);
-  for (let i = 0; i < links.length - 1; i += 2) {
-    const p1 = links[i];
-    const p2 = links[i + 1];
-    line(p1.x, p1.y, p2.x, p2.y);
-  }
+  for (let i = 0; i < links.length; i += 2)
+    drawLineWithPoints(links[i], links[i + 1]);
   pop();
 }
 
@@ -101,7 +98,7 @@ function drawRoutineFactory() {
   return function (d = dot, m = modulo) {
     if (!!d) dot = d;
     if (!!m) modulo = m;
-    console.log("d:", dot, "m:", modulo);
+    // console.log("d:", dot, "m:", modulo);
     background(51);
     const dots = calcDots(dot);
     const links = getLinks(dots, modulo);
