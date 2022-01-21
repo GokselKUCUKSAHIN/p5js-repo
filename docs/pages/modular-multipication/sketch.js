@@ -34,6 +34,10 @@ function setup() {
   drawRoutine(10, 2);
 }
 
+function draw(){
+
+}
+
 function calcEndPoint(centerVector, angleDegree, r) {
   return createVector(centerVector.x + r * cos(angleDegree), centerVector.x + r * sin(angleDegree));
 }
@@ -106,6 +110,6 @@ function drawRoutineFactory() {
     const links = getLinks(dots, modulo);
     drawLinks(links);
     drawDots(dots);
-    redraw(1);
+    redraw();
   }
 }
