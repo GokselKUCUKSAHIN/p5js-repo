@@ -16,6 +16,8 @@
   <br>
   <span>Picked: {{ mode }}</span>
   <br>
+  <input v-model="customBitStr" placeholder="Enter BitString for Plot" type="text">
+  <br>
   <input @change="modeChanged" type="radio" id="two" value="TWO_RING" v-model="mode">
   <label for="two">Two Ring</label>
   <input @change="modeChanged" type="radio" id="ten" value="TEN_RING" v-model="mode">
@@ -25,6 +27,7 @@
   const vueInstance = new Vue({
     el: "#app",
     data: {
+      customBitStr: "",
       bitString: [],
       mode: 'TWO_RING',
       ringCount: {
@@ -33,11 +36,22 @@
       }
     },
     methods: {
+      checkBitStr() {
+        if (this.customBitStr.length !== this.ringCount[this.mode]) return false;
+        for (const chr of this.customBitStr) {
+          if (chr !== "0" && chr !== "1") return false;
+        }
+        return true;
+      },
       createRandomBitString() {
         if (!builded) {
           build(this.mode);
         }
-        this.bitString = [...Array(this.ringCount[this.mode])].map(this.randomBoolean);
+        if (this.checkBitStr()) {
+          this.bitString = this.customBitStr.split("").map(v => parseInt(v));
+        } else {
+          this.bitString = [...Array(this.ringCount[this.mode])].map(this.randomBoolean);
+        }
         setBitstring(this.bitString);
         draw();
       },

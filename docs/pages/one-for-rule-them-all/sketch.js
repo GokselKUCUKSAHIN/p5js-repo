@@ -65,8 +65,7 @@ function setup() {
 }
 
 function draw() {
-
-  background(240);
+  background(255); // PURE WHITE
   if (builded) {
     drawOrbits(400, masterOrbit, bitString);
   }
