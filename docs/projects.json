@@ -51,6 +51,11 @@
       "live": "pages/cellularAutomata/automata.html"
     },
     {
+      "name": "Heron",
+      "git": "https://github.com/GokselKUCUKSAHIN/p5js-repo/blob/main/docs/pages/heron",
+      "live": "pages/heron/heron.html"
+    },
+    {
       "name": "Caramel",
       "git": "https://github.com/GokselKUCUKSAHIN/p5js-repo/blob/main/docs/pages/caramel",
       "live": "pages/caramel/caramel.html"
