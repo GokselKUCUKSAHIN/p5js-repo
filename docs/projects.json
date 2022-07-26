@@ -37,12 +37,12 @@
     },
     {
       "name": "WebGL DEMO",
-      "git": "https://github.com/GokselKUCUKSAHIN/p5js-repo/main/docs/pages/gitGud",
+      "git": "https://github.com/GokselKUCUKSAHIN/p5js-repo/blob/main/docs/pages/gitGud",
       "live": "pages/gitGud/webglp5demo.html"
     },
     {
       "name": "3D Model View",
-      "git": "https://github.com/GokselKUCUKSAHIN/p5js-repo/main/docs/pages/3d-model",
+      "git": "https://github.com/GokselKUCUKSAHIN/p5js-repo/blob/main/docs/pages/3d-model",
       "live": "pages/3d-model/3d-model.html"
     },
     {
