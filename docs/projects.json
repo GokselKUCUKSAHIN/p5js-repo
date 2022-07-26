@@ -41,14 +41,49 @@
       "live": "pages/gitGud/webglp5demo.html"
     },
     {
+      "name": "3D Model View",
+      "git": "https://github.com/GokselKUCUKSAHIN/p5js-repo/main/docs/pages/3d-model",
+      "live": "pages/3d-model/3d-model.html"
+    },
+    {
       "name": "Convey's Game of Life",
       "git": "https://github.com/GokselKUCUKSAHIN/p5js-repo/blob/main/docs/pages/cellularAutomata",
       "live": "pages/cellularAutomata/automata.html"
     },
     {
+      "name": "Caramel",
+      "git": "https://github.com/GokselKUCUKSAHIN/p5js-repo/blob/main/docs/pages/caramel",
+      "live": "pages/caramel/caramel.html"
+    },
+    {
+      "name": "Chain",
+      "git": "https://github.com/GokselKUCUKSAHIN/p5js-repo/blob/main/docs/pages/chain",
+      "live": "pages/chain/chain.html"
+    },
+    {
+      "name": "Concentric Antenna",
+      "git": "https://github.com/GokselKUCUKSAHIN/p5js-repo/blob/main/docs/pages/concentric-antenna",
+      "live": "pages/concentric-antenna/ring.html"
+    },
+    {
+      "name": "Circular Concentric Antenna",
+      "git": "https://github.com/GokselKUCUKSAHIN/p5js-repo/blob/main/docs/pages/one-for-rule-them-all",
+      "live": "pages/one-for-rule-them-all/ring.html"
+    },
+    {
+      "name": "Antenna Polar Plot",
+      "git": "https://github.com/GokselKUCUKSAHIN/p5js-repo/blob/main/docs/pages/polar-plot",
+      "live": "pages/polar-plot/polar-plot.html"
+    },
+    {
       "name": "Modulular Multipication",
       "git": "https://github.com/GokselKUCUKSAHIN/p5js-repo/blob/main/docs/pages/modular-multipication",
       "live": "pages/modular-multipication/modular-multipication.html"
+    },
+    {
+      "name": "Bishamon Banner",
+      "git": "https://github.com/GokselKUCUKSAHIN/p5js-repo/blob/main/docs/pages/bishamon",
+      "live": "pages/bishamon/index.html"
     },
     {
       "name": "Roller",
