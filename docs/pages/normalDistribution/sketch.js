@@ -3,7 +3,7 @@ const size = 400;
 function setup() {
   const canvas = createCanvas(size, size);
   canvas.parent("p5canvas");
-  numbers = Array(1000).fill(0);
+  numbers = Array(100).fill(0);
   strokeWeight(0.01);
   stroke("snow");
   colorMode(HSB, numbers.length, 1, 1);
@@ -26,8 +26,8 @@ function draw() {
 }
 
 const myCustomFunction = () => {
-  randomIndex = int(gaussianRandomRange(0,numbers.length,3));
-  //randomIndex = Math.floor(Math.random() * 10);
+  // randomIndex = int(gaussianRandomRange(0,numbers.length,3)); // gaussian
+  randomIndex = Math.floor(Math.random() * numbers.length); // even
   numbers[randomIndex]++;
 };
 
