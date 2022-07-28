@@ -2,9 +2,9 @@ let w = window.innerWidth;
 let h = window.innerHeight;
 
 const pins = [
-  new Pin(60, 60, 10),
-  new Pin(300, 205, 10),
-  new Pin(100, 330, 10)
+  new Pin(60, 60, 20),
+  new Pin(300, 205, 20),
+  new Pin(100, 330, 20)
 ];
 
 function setup() {
