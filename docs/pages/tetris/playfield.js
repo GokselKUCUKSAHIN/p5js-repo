@@ -20,10 +20,8 @@ class Playfield {
 	}
 
 	addToGrid(piece) {
-		
 		for (let row = 0; row < piece.size; row++) {
 			for (let col = 0; col < piece.size; col++) {
-				
 				if (piece.cells[row][col] != null) {
 					let gridRow = piece.y + row;
 					let gridCol = piece.x + col;
@@ -31,17 +29,13 @@ class Playfield {
 					this.grid[gridRow][gridCol] = 
 						piece.cells[row][col];
 				}
-				
 			}
 		}
-		
 	}
 	
 	
 	clearLines() {
-		
 		for (let row = this.rows-1; row >= 0; row--) {
-
 			// if this row is full
 			if (!this.grid[row].includes(this.foreground)) {
 				// remove the row
@@ -49,9 +43,7 @@ class Playfield {
 				// and add an empty row to the top
 				this.grid.unshift(new Array(this.cols).fill(this.foreground));
 			}
-			
 		}
-		
 	}
 	
 	isValid(piece) {
@@ -66,7 +58,7 @@ class Playfield {
 					
 					if (gridRow < 0 || gridRow >= this.rows ||
 							gridCol < 0 || gridCol >= this.cols ||
-							this.grid[gridRow][gridCol] != this.foreground)
+							this.grid[gridRow][gridCol] !== this.foreground)
 						return false;
 				}
 				

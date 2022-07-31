@@ -1,32 +1,86 @@
 console.log('keyboard')
-document.addEventListener('keydown', event => {
-    if ([32, 37, 38, 39, 40].includes(event.keyCode)) {
-    	event.preventDefault();
-    }
-    switch (event.keyCode) {
-        
-      // Down arrow
-      case 40:
-      	fallingPiece.moveDown();
-        if (!playfield.isValid(fallingPiece))
-          fallingPiece.moveUp()
-        else
-          fallingPiece.resetBuffer()
-        break;
-        
-      // Left arrow
-      case 37:
-      	fallingPiece.moveLeft();
-        if (!playfield.isValid(fallingPiece))
-          fallingPiece.moveRight()
-        break;
 
-      // Right Arrow
-      case 39:
-      	fallingPiece.moveRight();
-        if (!playfield.isValid(fallingPiece))
-          fallingPiece.moveLeft()
-        break;         
+const KEYS = {
+  RIGHT: "ArrowRight",
+  UP: "ArrowUp",
+  LEFT: "ArrowLeft",
+  DOWN: "ArrowDown",
+  SPACE: "Space",
+  Z: "KeyZ",
+  X: "KeyX",
+  R: "KeyR",
+  P: "KeyP",
+  W: "KeyW",
+  N: "KeyN"
+}
+
+document.addEventListener('keydown', event => {
+  // console.log(event.code);
+  const pressedKey = event.code;
+  if (Object.values(KEYS).includes(pressedKey)) {
+    event.preventDefault();
+    // console.log("VALID");
+  }
+  switch (pressedKey) {
+    case KEYS.UP: {
+      fallingPiece.rotateCW();
+      if (!playfield.isValid(fallingPiece))
+        fallingPiece.rotateCCW();
+      break;
     }
-        
+    case KEYS.RIGHT: {
+      fallingPiece.moveRight();
+      if (!playfield.isValid(fallingPiece))
+        fallingPiece.moveLeft()
+      break;
+    }
+    case KEYS.LEFT: {
+      fallingPiece.moveLeft();
+      if (!playfield.isValid(fallingPiece))
+        fallingPiece.moveRight()
+      break;
+    }
+    case KEYS.DOWN: {
+      fallingPiece.moveDown();
+      if (!playfield.isValid(fallingPiece))
+        fallingPiece.moveUp()
+      else
+        fallingPiece.resetBuffer()
+      break;
+    }
+    case KEYS.SPACE: {
+      hardDrop(fallingPiece, playfield);
+      spawnNewPiece();
+      break;
+    }
+    case KEYS.KEY_Z: {
+      fallingPiece.rotateCCW();
+      if (!playfield.isValid(fallingPiece))
+        fallingPiece.rotateCW();
+      break;
+    }
+    case KEYS.X: {
+      fallingPiece.rotateCW();
+      if (!playfield.isValid(fallingPiece))
+        fallingPiece.rotateCCW();
+      break;
+    }
+    case KEYS.R: {
+      spawnNewPiece();
+      playfield.resetGrid();
+      break;
+    }
+    case KEYS.P: {
+      paused = !paused;
+      break;
+    }
+    // case KEYS.W: {
+    //   fallingPiece.y--;
+    //   break;
+    // }
+    // case KEYS.N: {
+    //   spawnNewPiece();
+    //   break;
+    // }
+  }
 });
