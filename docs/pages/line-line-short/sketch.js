@@ -8,13 +8,17 @@ const pins = [
   new Pin(150, 150, 12)
 ];
 
+const pz1 = new Pin(-1, -1);
+const pz2 = new Pin(-1, -1);
+
+const short = new Link(pz1, pz2);
+
 function setup() {
   canvas = createCanvas(w, h);
   link1 = new Link(...pins.slice(0, 2), 3);
   link2 = new Link(...pins.slice(2, 4), 3);
   rectMode(CENTER);
   angleMode(DEGREES);
-  p5.Vector.dis
 }
 
 function draw() {
@@ -22,6 +26,7 @@ function draw() {
   // tri.show();
   link1.show();
   link2.show();
+  short.show();
   for (const pin of pins) {
     pin.show(mouseX, mouseY, capBorders);
   }
@@ -31,13 +36,13 @@ function draw() {
   push();
   stroke(0);
   strokeWeight(1);
-  fill(255,0,0);
+  fill(255, 0, 0);
   translate(300, 300);
   rotate(30);
   rect(0, 0, 100, 200);
   fill(255);
   circle(0, 0, 20);
-  fill(0,0,255);
+  fill(0, 0, 255);
   circle()
   pop();
 }
@@ -77,12 +82,17 @@ function mouseReleased() {
     pin.notPressed();
   }
   // bodge
-  const s1 = createVector(link1.start.x, link1.start.y);
-  const e1 = createVector(link1.end.x, link1.end.y);
-  const s2 = createVector(link2.start.x, link2.start.y);
-  const e2 = createVector(link2.end.x, link2.end.y);
-  const dist= distanceBetweenFeatureLines(s1, e1, s2, e2);
-  console.log(dist);
+  const s1 = veclikeToP5Vec(link1.start)
+  const e1 = veclikeToP5Vec(link1.end);
+  const s2 = veclikeToP5Vec(link2.start);
+  const e2 = veclikeToP5Vec(link2.end);
+  const dist = distanceBetweenFeatureLines(s1, e1, s2, e2);
+  const [l1, l2] = shortestLine(s1, e1, s2, e2);
+  pz1.x = l1.x;
+  pz1.y = l1.y;
+  pz2.x = l2.x;
+  pz2.y = l2.y;
+  console.log("dist:", dist);
 }
 
 window.onresize = function () {
