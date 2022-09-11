@@ -1,6 +1,6 @@
 /**
- *
- * @param verticies {p5.Vector[]}
+ * Calculates Polygon Area using given verticies.
+ * @param verticies {p5.Vector[] | {x: number, y: number}[]}
  * @return {number}
  */
 function shoelaceArea(verticies) {

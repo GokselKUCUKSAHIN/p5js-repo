@@ -1,6 +1,6 @@
 /**
- *
- * @param verticies {p5.Vector[]}
+ * Finds center point of Polygon using given verticies
+ * @param verticies {p5.Vector[] | {x: number, y: number}[]}
  * @return {p5.Vector}
  */
 function findCentroid(verticies) {
