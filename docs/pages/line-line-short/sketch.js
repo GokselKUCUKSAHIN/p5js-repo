@@ -8,6 +8,7 @@ const pins = [
   new Pin(150, 150, 12)
 ];
 
+
 function setup() {
   canvas = createCanvas(w, h);
   link1 = new Link(...pins.slice(0, 2), 3);
