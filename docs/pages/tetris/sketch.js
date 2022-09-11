@@ -72,7 +72,6 @@ function spawnNewPiece() {
 	ghostPiece.isghost = true;
 	ghostPiece.cells = fallingPiece.cells;
 	redraw();
-
 }
 
 function hardDrop(piece, playfield) {

@@ -49,7 +49,7 @@ class Pin {
       this.offsetY = this.y - pY;
     }
     // else {
-    // console.log("Pressed Outside");
+      // console.log("Pressed Outside");
     // }
   }
 

@@ -1,6 +1,7 @@
 console.log('keyboard')
 
 const KEYS = {
+  // Hash-Map-uh!
   RIGHT: "ArrowRight",
   UP: "ArrowUp",
   LEFT: "ArrowLeft",
@@ -53,7 +54,7 @@ document.addEventListener('keydown', event => {
       spawnNewPiece();
       break;
     }
-    case KEYS.KEY_Z: {
+    case KEYS.Z: {
       fallingPiece.rotateCCW();
       if (!playfield.isValid(fallingPiece))
         fallingPiece.rotateCW();

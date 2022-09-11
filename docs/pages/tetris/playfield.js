@@ -47,26 +47,19 @@ class Playfield {
 	}
 	
 	isValid(piece) {
-		
 		for (let row = 0; row < piece.size; row++) {
 			for (let col = 0; col < piece.size; col++) {
-				
 				if (piece.cells[row][col] != null) {
-					
 					let gridRow = piece.y + row;
 					let gridCol = piece.x + col;
-					
 					if (gridRow < 0 || gridRow >= this.rows ||
 							gridCol < 0 || gridCol >= this.cols ||
 							this.grid[gridRow][gridCol] !== this.foreground)
 						return false;
 				}
-				
 			}
 		}
-
 		return true;
-		
 	}
 	
 	
