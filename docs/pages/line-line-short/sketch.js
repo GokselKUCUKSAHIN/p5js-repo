@@ -15,6 +15,7 @@ function setup() {
   link2 = new Link(...pins.slice(2, 4), 3);
   rectMode(CENTER);
   angleMode(DEGREES);
+  p5.Vector.dis
 }
 
 function draw() {
