@@ -1,14 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <script src="https://cdn.jsdelivr.net/npm/p5@1.2.0/lib/p5.min.js"></script>
-  <script src="data.js"></script>
-  <script src="sketch.js"></script>
   <meta charset="UTF-8"/>
   <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Knit String 2024</title>
+  <title>Knit String</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/p5@1.2.0/lib/p5.min.js"></script>
+  <script src="script/data.js"></script>
+  <script src="script/sketch.js"></script>
+  <link rel="stylesheet" href="style/style.css"/>
 </head>
 <body>
+<div id="app">
+
+  <div class="img-wrapper">
+    <label for="image_uploads" class="img-upload-btn" @click="uploadImage">Upload</label>
+    <input type="file" id="image_uploads" name="image_uploads" ref="imgUpload" accept=".jpg, .jpeg, .png" style="opacity: 0;">
+  </div>
+  <div id='p5canvas'></div>
+</div>
+<script src="script/vue.js"></script>
 </body>
 </html>

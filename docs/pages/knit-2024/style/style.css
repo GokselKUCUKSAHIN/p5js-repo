@@ -1,0 +1,26 @@
+html {
+    box-sizing: border-box;
+}
+
+.myLabel {
+    display: inline-block;
+    width: 100px;
+}
+
+.decimalLabel {
+    display: inline-block;
+    margin-left: 8px;
+}
+
+.mySlider {
+    width: 440px;
+}
+
+.img-upload-btn {
+    border: 1px solid black;
+    padding: 10px 20px;
+}
+
+.img-wrapper {
+    padding: 20px;
+}
