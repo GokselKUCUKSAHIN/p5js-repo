@@ -1,13 +1,10 @@
 let pts = []
 let furt = [];
-const interval = 15;
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
   center = createVector(0, 0);
-  angleMode(DEGREES);
   distMax = -1;
-  rot = 0;
 }
 
 function draw() {
@@ -15,9 +12,6 @@ function draw() {
   if (pts.length > 1) {
     stroke('#301551');
     push()
-    translate(-center.x, -center.y)
-    rotate(rot)
-    translate(center.x, center.y)
     fill(pointInPoly(pts, createVector(mouseX, mouseY)) ? 'white' : 'grey')
     beginShape();
     pts.forEach(pt => vertex(pt.x, pt.y));
@@ -30,8 +24,7 @@ function draw() {
     noFill();
     circle(center.x, center.y, distMax * 2);
     pop();
-    pop()
-
+    pop();
   }
   if (furt.length === 2) {
     push();
@@ -118,16 +111,6 @@ function shoelaceArea(verticies) {
 // KEYBOARD
 function keyPressed() {
   switch (keyCode) {
-    case 37: {
-      print("LEFT", rot);
-      rot -= interval;
-      break;
-    }
-    case 39: {
-      print("RIGHT", rot);
-      rot += interval;
-      break;
-    }
     case 65: {
       // A
       console.log("Area of shape is", shoelaceArea(pts));

@@ -8,11 +8,6 @@ const pins = [
   new Pin(150, 150, 12)
 ];
 
-const pz1 = new Pin(-1, -1);
-const pz2 = new Pin(-1, -1);
-
-const short = new Link(pz1, pz2);
-
 function setup() {
   canvas = createCanvas(w, h);
   link1 = new Link(...pins.slice(0, 2), 3);
@@ -26,7 +21,6 @@ function draw() {
   // tri.show();
   link1.show();
   link2.show();
-  short.show();
   for (const pin of pins) {
     pin.show(mouseX, mouseY, capBorders);
   }
@@ -87,11 +81,6 @@ function mouseReleased() {
   const s2 = veclikeToP5Vec(link2.start);
   const e2 = veclikeToP5Vec(link2.end);
   const dist = distanceBetweenFeatureLines(s1, e1, s2, e2);
-  const [l1, l2] = shortestLine(s1, e1, s2, e2);
-  pz1.x = l1.x;
-  pz1.y = l1.y;
-  pz2.x = l2.x;
-  pz2.y = l2.y;
   console.log("dist:", dist);
 }
 
