@@ -11,7 +11,7 @@ const pins = [
 const pz1 = new Pin(-1, -1);
 const pz2 = new Pin(-1, -1);
 
-const short = new Link(pz1, pz2);
+// const short = new Link(pz1, pz2);
 
 function setup() {
   canvas = createCanvas(w, h);
@@ -26,25 +26,35 @@ function draw() {
   // tri.show();
   link1.show();
   link2.show();
-  short.show();
+  // short.show();
   for (const pin of pins) {
     pin.show(mouseX, mouseY, capBorders);
   }
 
-  // DEMO
+  // calculate intersection point
+  const {x, y} = intersectingPointOfTwoLines(link1.start, link1.end, link2.start, link2.end);
+  push()
+  fill(255,0,0)
+  stroke(0)
+  strokeWeight(2)
+  circle(x,y,10)
+  pop()
 
-  push();
-  stroke(0);
-  strokeWeight(1);
-  fill(255, 0, 0);
-  translate(300, 300);
-  rotate(30);
-  rect(0, 0, 100, 200);
-  fill(255);
-  circle(0, 0, 20);
-  fill(0, 0, 255);
-  circle()
-  pop();
+
+  // // DEMO
+  //
+  // push();
+  // stroke(0);
+  // strokeWeight(1);
+  // fill(255, 0, 0);
+  // translate(300, 300);
+  // rotate(30);
+  // rect(0, 0, 100, 200);
+  // fill(255);
+  // circle(0, 0, 20);
+  // fill(0, 0, 255);
+  // circle()
+  // pop();
 }
 
 function capBorders(px, py, padding = 0) {
@@ -100,4 +110,23 @@ window.onresize = function () {
   h = window.innerHeight;
   recapPinsFromBorder(w, h);
   resizeCanvas(w, h);
+}
+
+function intersectingPointOfTwoLines(A, B, C, D) {
+  // Line AB represented as a1x + b1y = c1
+  const a1 = B.y - A.y;
+  const b1 = A.x - B.x;
+  const c1 = a1 * A.x + b1 * A.y;
+
+  // Line CD represented as a2x + b2y = c2
+  const a2 = D.y - C.y;
+  const b2 = C.x - D.x;
+  const c2 = a2 * C.x + b2 * C.y;
+
+  const det = a1 * b2 - a2 * b1;
+
+  if (det === 0) return {x: -1, y: -1};
+  const x = (b2 * c1 - b1 * c2) / det;
+  const y = (a1 * c2 - a2 * c1) / det;
+  return {x, y};
 }
