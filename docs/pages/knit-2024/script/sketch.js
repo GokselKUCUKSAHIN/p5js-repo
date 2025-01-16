@@ -1,7 +1,9 @@
-let w = 900;
-let h = 750;
+let w = 600;
+let h = 600;
 
-const data = testData
+let knitData = gksData
+
+// let count = 0
 
 function setup() {
   canvas = createCanvas(w, h)
@@ -11,17 +13,23 @@ function setup() {
   ellipseMode(CENTER);
   textAlign(CENTER);
   strokeWeight(5);
-  // console.log(data.pins)
-  // console.log(data.lines)
+  knitData.lines = shuffle(knitData.lines)
 }
-
-let count = 0
 
 function draw() {
   background(240);
   noFill();
-  renderPins(data)
-  renderLines(data, count+=3)
+  renderPins(knitData)
+  if (vueInstance.isPlaying) {
+    const currentCount = parseInt(vueInstance.count, 10)
+    if (currentCount > knitData.lines.length) {
+      vueInstance.count = knitData.lines.length
+      vueInstance.isPlaying = false
+    } else {
+      vueInstance.count = currentCount + 3
+    }
+  }
+  renderLines(knitData, vueInstance.count)
 }
 
 function renderPins(data) {
@@ -43,7 +51,7 @@ function renderLines(data, step) {
   stroke(0)
   strokeWeight(0.26)
   if (step > data.lines.length) {
-    step = data.lines.length
+    step = data.lines.length - 1
   }
   for (let i = 0; i < step; i++) {
     const knitLine = data.lines[i]
@@ -56,4 +64,18 @@ function renderLines(data, step) {
 
 function p5redraw() {
   redraw();
+}
+
+function getRandomInt(min, max) {
+  return min + Math.floor((max - min) * Math.random())
+}
+
+function shuffle(array) {
+  for (let i = 0; i < 3 * array.length; i++) {
+    const first = getRandomInt(0, array.length)
+    const temp = array[first]
+    const second = getRandomInt(0, array.length)
+    array[first] = array[second]
+    array[second] = temp
+  }
 }

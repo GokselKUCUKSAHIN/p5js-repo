@@ -13,12 +13,74 @@
 </head>
 <body>
 <div id="app">
-
   <div class="img-wrapper">
-    <label for="image_uploads" class="img-upload-btn" @click="uploadImage">Upload</label>
-    <input type="file" id="image_uploads" name="image_uploads" ref="imgUpload" accept=".jpg, .jpeg, .png" style="opacity: 0;">
+    <label for="image_uploads" class="img-upload-btn">
+      Upload Image
+    </label>
+    <input
+        type="file"
+        id="image_uploads"
+        accept="image/jpeg,image/png"
+        @change="handleImageUpload"
+        :disabled="processingImage"
+        style="display: none"
+    >
   </div>
-  <div id='p5canvas'></div>
+
+  <div v-if="error" class="error-message">
+    {{ error }}
+  </div>
+
+  <div class="content-wrapper">
+    <div class="left-content">
+      <div id='p5canvas'></div>
+      <div class="slider-container">
+        <button class="play-pause-btn" @click="togglePlay">
+          {{ isPlaying ? '⏸️' : '▶️' }}
+        </button>
+        <input
+            type="range"
+            min="0"
+            :max="2001"
+            v-model="count"
+            class="progress-slider"
+            @mousedown="handleSliderInteraction"
+        >
+      </div>
+    </div>
+    <div class="preview-container">
+      <div v-if="processingImage" class="processing-overlay">
+        Processing...
+      </div>
+      <img v-if="croppedImage" :src="croppedImage" class="cropped-preview" alt="Kırpılmış resim">
+    </div>
+  </div>
+
+  <!-- Kırpma Modalı -->
+  <div v-if="showCropModal" class="modal-overlay">
+    <div class="modal-content" :style="modalStyle">
+      <div class="modal-header">
+        <h3>Crop the image</h3>
+        <button class="close-btn" @click="showCropModal = false">&times;</button>
+      </div>
+
+      <div class="crop-area">
+        <canvas
+            ref="cropCanvas"
+            width="800"
+            height="600"
+            @mousedown="startDrag"
+            @mousemove="drag"
+            @mouseup="stopDrag"
+            @mouseleave="stopDrag"
+        ></canvas>
+      </div>
+
+      <div class="modal-footer">
+        <button @click="cropAndProcess">Crop and Process</button>
+      </div>
+    </div>
+  </div>
 </div>
 <script src="script/vue.js"></script>
 </body>
